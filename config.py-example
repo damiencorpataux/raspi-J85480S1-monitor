@@ -1,0 +1,18 @@
+# CMTS CPL Monitor configuration
+
+
+# GPIO to J1 Signal Names (Pin: Signal-Name dict)
+pinout = {4: 'POWER_CAP_1',
+          17: 'POWER_CAP_2',
+          27: 'POWER_CAP_3',
+          22: 'POWER_CAP_4',
+          10: 'MOD_PRES_1', # 27 is always 1 (defect on that pi?)
+          9: 'MOD_PRES_2',
+          11: 'MOD_PRES_3',
+          5: 'MOD_PRES_4',
+          6: 'PFW_1',
+          13: 'PFW_2',
+          19: 'PFW_3',
+          26: 'PFW_4',
+          21: 'Fault',
+          20: 'OTW'}

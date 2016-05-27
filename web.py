@@ -1,3 +1,9 @@
+# CMTS CPL Monitor, Web interface
+#
+# Usage:
+#   sudo python web.py
+
+
 import flask, reader
 
 app = flask.Flask(__name__)

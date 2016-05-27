@@ -1,6 +1,6 @@
-# GPIO Reader component
-#
-#
+# CMTS CPL Monitoring, GPIO Reader component
+
+
 # Wiring
 # ------
 #
@@ -37,22 +37,7 @@
 
 import time, collections
 import RPi.GPIO as GPIO
-
-# GPIO to J1 Signal Names (Pin: Signal-Name dict)
-pinout = {2: 'POWER_CAP_1',
-          3: 'POWER_CAP_2',
-          4: 'POWER_CAP_3',
-          17: 'POWER_CAP_4',
-          25: 'MOD_PRES_1', # 27 is always 1 (defect on that pi?)
-          22: 'MOD_PRES_2',
-          10: 'MOD_PRES_3',
-          9: 'MOD_PRES_4',
-          11: 'PFW_1',
-          14: 'PFW_2',
-          15: 'PFW_3',
-          18: 'PFW_4',
-          23: 'Fault',
-          24: 'OTW'}
+import config
 
 # Raw value to logical transform functions
 to_human = {'POWER_CAP_1': lambda v: to_values['POWER_CAP'][bool(v)],
@@ -143,7 +128,7 @@ def init():
     Initialize GPIO (pin mode, pull-ups, etc).
     """
     GPIO.setmode(GPIO.BCM)
-    for pin in pinout.viewkeys():
+    for pin in config.pinout.viewkeys():
 	print 'Setting pin %s as INPUT with PULL-UP (50..65k)' % pin
         GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
@@ -158,7 +143,7 @@ def read_raw():
     """
     Returns the raw measurements.
     """
-    return {signal: GPIO.input(pin) for pin, signal in pinout.viewitems()}
+    return {signal: GPIO.input(pin) for pin, signal in config.pinout.viewitems()}
 
 def read_latch(n=8, interval=0.5):
     """
