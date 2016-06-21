@@ -6,7 +6,12 @@ reader.init()
 @app.route('/')
 def read():
     """Returns the reader data"""
-    return flask.jsonify(reader.read())
+    raw_values = (reader.read_latch()
+                  if 'latch' in flask.request.args.keys()
+                  else reader.read_raw())
+    return flask.jsonify(raw=raw_values,
+                         human=reader.human(raw_values),
+                         alarms=reader.alarms(raw_values))
 
 
 # CLI invocation handler
