@@ -26,6 +26,7 @@ if __name__ == '__main__':
         app.run(host='0.0.0.0',
                 port=80,
                 debug=app.config.get('DEBUG'),
+                threaded=False,
                 use_reloader=True)
     finally:
         print 'Cleaning GPIO state...'
