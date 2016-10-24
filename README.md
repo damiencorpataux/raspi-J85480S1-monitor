@@ -4,19 +4,24 @@ CMTS CPL Monitor
 A project for monitoring LINEAGE J85480S1 power-supplies, involving:
 - LINEAGE J85480S1 and its J1 connector
 - A Rapberrypi and its GPIO connector
-- RPi.GPIO and Flask
+- RPi.GPIO and Flask python libraries
+- gunicorn and systemd
+
 
 ## Installation
 ```
 git clone {repository-url} monitor
 cd monitor
-cp config.py-example config.py
-vi config.py  # update with your preffered pinout, or not
-```
+vi config.py  # optionally update with your preffered pinout, or not
 
-## Usage
-```
-sudo python web.py
+python web.py  # test the service with built-in dev web server
+
+sudo apt-get install gunicorn  # install gunicorn wsgi server
+sudo ln -s `pwd`/systemd.service /etc/systemd/system/casa-monitor.service  # create systemd service
+sudo systemctl start casa-monitor  # start the service
+sudo systemctl status casa-monitor  # check the service state
+curl localhost  # check the web-service output
+sudo systemctl enable casa-monitor  # start the service upon boot
 ```
 
 Testing with curl:

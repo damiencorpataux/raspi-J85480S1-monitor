@@ -1,0 +1,18 @@
+[Unit]
+Description=psu-monitor daemon
+#Requires=gunicorn.socket
+After=network.target
+
+[Service]
+Environment=PYTHONHASHSEED=random
+PIDFile=/run/gunicorn/pid
+User=root
+Group=root
+WorkingDirectory=/home/pi/cmts-cpl-monitor
+ExecStart=/usr/bin/gunicorn --pid /run/gunicorn/pid --bind 0.0.0.0:80 --workers 2 web:app
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
