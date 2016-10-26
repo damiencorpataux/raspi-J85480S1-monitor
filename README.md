@@ -8,25 +8,29 @@ A project for monitoring LINEAGE J85480S1 power-supplies, involving:
 - gunicorn and systemd
 
 
-## Installation
+## Installation (Debian)
 ```
-git clone {repository-url} monitor
-cd monitor
-vi config.py  # optionally update with your preffered pinout, or not
+# Install and configure the web-service
+sudo apt-get install python python-dev python-pip git
+git clone {repository-url} cmts-cpl-monitor
+cd cmts-cpl-monitor
+sudo pip install -r requirements.txt
+vi config.py         # optionally update with your preferred pinout, or not
+python web.py        # test the service with built-in dev web server
+curl localhost:8080  # check the web-service output
 
-python web.py  # test the service with built-in dev web server
-
-sudo apt-get install gunicorn  # install gunicorn wsgi server
-sudo ln -s `pwd`/systemd.service /etc/systemd/system/casa-monitor.service  # create systemd service
-sudo systemctl start casa-monitor  # start the service
-sudo systemctl status casa-monitor  # check the service state
-curl localhost  # check the web-service output
-sudo systemctl enable casa-monitor  # start the service upon boot
+# Install and configure gunicorn
+sudo apt-get install gunicorn           # install gunicorn wsgi server
+sudo cp `pwd`/systemd.service /etc/systemd/system/cmts-cpl-monitor.service  # create systemd service
+sudo systemctl start cmts-cpl-monitor   # start the service
+sudo systemctl status cmts-cpl-monitor  # check the service state
+curl localhost                          # check the web-service output
+sudo systemctl enable cmts-cpl-monitor  # start the service upon boot
 ```
 
-Testing with curl:
+## Testing with curl
 ```
-curl localhost
+curl localhost[:8080]
 ```
 displays:
 ```

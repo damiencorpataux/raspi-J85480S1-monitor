@@ -1,5 +1,5 @@
 [Unit]
-Description=psu-monitor daemon
+Description=cmts-cpl-monitor daemon
 #Requires=gunicorn.socket
 After=network.target
 
