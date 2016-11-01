@@ -1,11 +1,13 @@
-# CMTS CPL Monitor configuration
+"""
+LINEAGE J85480S1 CPL Monitor, GPIO Reader configuration.
+"""
 
 # GPIO to J1 Signal Names (Pin: Signal-Name dict)
 pinout = {17: 'POWER_CAP_1',
           18: 'POWER_CAP_2',
           27: 'POWER_CAP_3',
           22: 'POWER_CAP_4',
-          23: 'MOD_PRES_1', # 27 is always 1 (defect on that pi?)
+          23: 'MOD_PRES_1',
           24: 'MOD_PRES_2',
           25: 'MOD_PRES_3',
           5: 'MOD_PRES_4',

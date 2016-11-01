@@ -1,7 +1,11 @@
-# CMTS CPL Monitor, Web interface
-#
-# Usage:
-#   sudo python web.py
+#!/usr/bin/env python
+
+"""
+LINEAGE J85480S1 CPL Monitor, Web interface module.
+
+Usage:
+    python web.py
+"""
 
 
 import flask, reader

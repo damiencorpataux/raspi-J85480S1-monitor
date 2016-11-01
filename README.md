@@ -8,18 +8,22 @@ A project for monitoring LINEAGE J85480S1 power-supplies, involving:
 - gunicorn and systemd
 
 
-## Installation (Debian)
+Installation (Debian)
+---------------------
+
+### Install and configure the web-service
 ```
-# Install and configure the web-service
 sudo apt-get install python python-dev python-pip git
 git clone {repository-url} cmts-cpl-monitor
 cd cmts-cpl-monitor
 sudo pip install -r requirements.txt
 vi config.py         # optionally update with your preferred pinout, or not
 python web.py        # test the service with built-in dev web server
-curl localhost:8080  # check the web-service output
+curl localhost:5000  # check the web-service output
+```
 
-# Install and configure gunicorn
+### Install and configure gunicorn
+```
 sudo apt-get install gunicorn           # install gunicorn wsgi server
 sudo cp `pwd`/systemd.service /etc/systemd/system/cmts-cpl-monitor.service  # create systemd service
 sudo systemctl start cmts-cpl-monitor   # start the service
@@ -28,9 +32,9 @@ curl localhost                          # check the web-service output
 sudo systemctl enable cmts-cpl-monitor  # start the service upon boot
 ```
 
-## Testing with curl
+### Testing with curl
 ```
-curl localhost[:8080]
+curl localhost[:5000]
 ```
 displays:
 ```
@@ -123,3 +127,12 @@ displays:
   }
 }
 ```
+
+
+Sources
+-------
+
+* LINEAGE Shelf J85480S1 Documentation
+  http://apps.geindustrial.com/publibrary/checkout/J85480S1?TNR=Data%20Sheets%7CJ85480S1%7Cgeneric
+* LINEAGE CPL CP2000AC54 Documentation
+  http://apps.geindustrial.com/publibrary/checkout/CP2000AC54?TNR=Data%20Sheets%7CCP2000AC54%7CPDF&filename=CP2000AC54.pdf

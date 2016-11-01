@@ -1,39 +1,38 @@
-# CMTS CPL Monitoring, GPIO Reader component
+"""
+LINEAGE J85480S1 CPL Monitor, GPIO Reader module.
 
+J1 Connector Pinout
+-------------------
+- {J1 Pin Name}: {J1 Pin number}
 
-# Wiring
-# ------
-#
-# J1 Pin Name: J1 Pin number
-#
-# POWER_CAP_1: 1
-# POWER_CAP_2: 2
-# POWER_CAP_3: 3
-# POWER_CAP_4: 4
-# MOD_PRES_1: 5
-# MOD_PRES_2: 6
-# MOD_PRES_3: 7
-# MOD_PRES_4: 8
-# PFW_1: 9
-# PFW_2: 10
-# PFW_3: 11
-# PFW_4: 12
-# Fault: 17
-# OTW: 25
-# GND: 20 (or 22)
-# 5V: 24 (max 750mA)
-#
-#
-# Note: On the J1 connector, pin 1 is in the lower left corner,
-#       pin 2 is on the upper left corner, etc...
-#
-#   2 4 6 ...
-# +--------------
-# | : : : : : : : ...
-# +------------------
-#   1 3 5 7...
-#
+- POWER_CAP_1: 1
+- POWER_CAP_2: 2
+- POWER_CAP_3: 3
+- POWER_CAP_4: 4
+- MOD_PRES_1: 5
+- MOD_PRES_2: 6
+- MOD_PRES_3: 7
+- MOD_PRES_4: 8
+- PFW_1: 9
+- PFW_2: 10
+- PFW_3: 11
+- PFW_4: 12
+- Fault: 17
+- OTW: 25
+- GND: 20 (or 22)
+- 5V: 24 (max 750mA)
 
+Note
+----
+On the J1 connector, pin 1 is in the lower left corner,
+pin 2 is on the upper left corner, etc...
+
+  2 4 6 ...
++--------------
+| : : : : : : : ...
++------------------
+  1 3 5 7...
+"""
 
 import time, collections
 import RPi.GPIO as GPIO
@@ -149,6 +148,10 @@ def read_latch(n=8, interval=0.5):
     """
     Returns the raw measurements, latched.
     Multiple measurements are performed at regular interval, keeping worst values.
+
+    NOTE: The reason for this implementation is that PFW and Fault flap
+    during a module failure (the pin state is reseted to not fault every time
+    the module is trying to restart, presumably).
     """
     latch_hi = lambda values: int(any(values)) # returns 1 if any value is 1
     latch_low = lambda values: int(all(values)) # returns 0 if any value is 0
@@ -174,9 +177,6 @@ def human(raw_values=None):
     """
     Returns the given raw measurement converted to human readable values.
     """
-    # FIXME: PFW and Fault flap during a module failure
-    #        (the pin state is reseted to not fault everytime the module is trying to restart, every presumably)
-    #        shall we latch for a while somehow the value somehow ?
     return {signal: to_human[signal](value)
             for signal, value in (raw_values or read_raw()).viewitems()}
 
