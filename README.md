@@ -1,15 +1,24 @@
-CMTS CPL Monitor
-================
+General Electric LINEAGE J85480S1 CPL Monitor
+=============================================
 
 A project for monitoring LINEAGE J85480S1 power-supplies, involving:
 - LINEAGE J85480S1 and its J1 connector
 - A Rapberrypi and its GPIO connector
+- A Pi HAT (see specification in hardware/README.md)
 - RPi.GPIO and Flask python libraries
 - gunicorn and systemd
 
+![Monitoring Device](/hardware/images/device-transparent-small.png?raw=true)
 
-Installation (Debian)
----------------------
+
+Hardware Specifications
+-----------------------
+
+Please refer to the [hardware README](hardware/).
+
+
+Software Installation (Debian)
+------------------------------
 
 ### Install and configure the web-service
 ```
@@ -129,10 +138,16 @@ displays:
 ```
 
 
-Sources
+Datasheets
+----------
+
+* [LINEAGE Shelf J85480S1 Documentation](http://apps.geindustrial.com/publibrary/checkout/J85480S1?TNR=Data%20Sheets%7CJ85480S1%7Cgeneric)
+* [LINEAGE CPL CP2000AC54 Documentation](http://apps.geindustrial.com/publibrary/checkout/CP2000AC54?TNR=Data%20Sheets%7CCP2000AC54%7CPDF&filename=CP2000AC54.pdf)
+
+
+Credits
 -------
 
-* LINEAGE Shelf J85480S1 Documentation
-  http://apps.geindustrial.com/publibrary/checkout/J85480S1?TNR=Data%20Sheets%7CJ85480S1%7Cgeneric
-* LINEAGE CPL CP2000AC54 Documentation
-  http://apps.geindustrial.com/publibrary/checkout/CP2000AC54?TNR=Data%20Sheets%7CCP2000AC54%7CPDF&filename=CP2000AC54.pdf
+* **Jon Martin** <jon.martin@citycable.ch>
+* **Pascal Pellet** <pascal.pellet@lausanne.ch>
+* **Jérôme Siegfried** <jerome.siegfried@lausanne.ch>
