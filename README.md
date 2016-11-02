@@ -141,13 +141,14 @@ displays:
 Datasheets
 ----------
 
-* [LINEAGE Shelf J85480S1 Documentation](http://apps.geindustrial.com/publibrary/checkout/J85480S1?TNR=Data%20Sheets%7CJ85480S1%7Cgeneric)
-* [LINEAGE CPL CP2000AC54 Documentation](http://apps.geindustrial.com/publibrary/checkout/CP2000AC54?TNR=Data%20Sheets%7CCP2000AC54%7CPDF&filename=CP2000AC54.pdf)
+* [LINEAGE Compact Power Line Shelves Model J85480S1](http://apps.geindustrial.com/publibrary/checkout/J85480S1?TNR=Data%20Sheets%7CJ85480S1%7Cgeneric)
+* [LINEAGE Compact Power Line CP2000AC54 Front-End Power Supply](http://apps.geindustrial.com/publibrary/checkout/CP2000AC54?TNR=Data%20Sheets%7CCP2000AC54%7CPDF&filename=CP2000AC54.pdf)
+* [Compact Power Line 48V DC Critical Power Solution](http://apps.geindustrial.com/publibrary/checkout/CPB-CPL?TNR=Brochures%7CCPB-CPL%7CPDF&filename=CPB-CPL%203-17-16.pdf)
 
 
 Credits
 -------
 
-* **Jon Martin** <jon.martin@citycable.ch>
-* **Pascal Pellet** <pascal.pellet@lausanne.ch>
-* **Jérôme Siegfried** <jerome.siegfried@lausanne.ch>
+* **Jon Martin** <<jon.martin@citycable.ch>>
+* **Pascal Pellet** <<pascal.pellet@lausanne.ch>>
+* **Jérôme Siegfried** <<jerome.siegfried@lausanne.ch>>
