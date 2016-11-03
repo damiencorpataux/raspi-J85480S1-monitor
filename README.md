@@ -8,7 +8,7 @@ A project for monitoring LINEAGE J85480S1 power-supplies, involving:
 - RPi.GPIO and Flask python libraries
 - gunicorn and systemd
 
-![Monitoring Device](/hardware/images/device-transparent-small.png?raw=true)
+![](/hardware/images/device-transparent-small.png?raw=true)
 
 
 Hardware Specifications

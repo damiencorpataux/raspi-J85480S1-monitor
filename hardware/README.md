@@ -6,7 +6,7 @@ with the Raspi GPIO connector and (optionally) supplying power.
 
 The HAT is designed for the 40-pin GPIO version (Raspberry Pi2 or Pi3).
 
-![Monitoring Hat](/hardware/images/device-nocase-transparent-small.png?raw=true)
+![](/hardware/images/device-nocase-transparent-small.png?raw=true)
 
 
 Bill Of Material

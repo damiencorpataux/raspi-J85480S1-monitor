@@ -1,6 +1,9 @@
 General Electric LINEAGE J85480S1 CPL Monitor HAT
 =================================================
 
+![](/hardware/images/hat-transparent-small.png?raw=true)
+
+
 Parts List
 ----------
 
