@@ -34,7 +34,7 @@ def check():
     except requests.exceptions.RequestException as e:
         output(3, e)
     except ValueError as e:
-        output(2, 'Monitoring data could not be read as json ({0}...)'.format('x'))#response.text[:50]))
+        output(2, 'Monitoring data could not be read as json ({0}...)'.format(response.text[:50]))
     except Exception as e:
         output(2, 'Unknown check error ({0}: {1})'.format(e.__class__, e.message))
     if all([alarms['OK'] for module, alarms in data['alarms'].viewitems()]):
