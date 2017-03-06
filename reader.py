@@ -64,7 +64,7 @@ to_alarms = {
         'OTW': 1,
         'PFW': 1,
         'MOD_PRES': 0},
-    'Thermal Shutdown ': {
+    'Thermal Shutdown': {
         'Fault': 0,
         'OTW': 0,
         'PFW': 0,
@@ -79,7 +79,7 @@ to_alarms = {
         'OTW': 1,
         'PFW': 0,
         'MOD_PRES': 0},
-    'No AC <15mS (single unit) ': {
+    'No AC <15mS (single unit)': {
         'Fault': 1,
         'OTW': 1,
         'PFW': 0,
