@@ -7,7 +7,7 @@ argparse==1.2.1
 chardet==2.3.0
 click==6.6
 colorama==0.3.2
-html5lib==0.999
+html5lib==0.999999999
 itsdangerous==0.24
 ndg-httpsclient==0.3.2
 pyOpenSSL==17.5.0
